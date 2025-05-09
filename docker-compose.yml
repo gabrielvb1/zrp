@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - '3030:3030'
+    environment:
+      - PORT=3030
+    container_name: pokemon-api
+
+  frontend:
+    build:
+      context: ./pokemon-search
+      dockerfile: Dockerfile
+    ports:
+      - '8080:80'
+    container_name: pokemon-search
+    depends_on:
+      - api
