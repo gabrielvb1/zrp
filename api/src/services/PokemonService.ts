@@ -35,9 +35,7 @@ class PokemonService implements IPokemonService {
   getPokemonByIdFromApi = async (
     pokemonName: string
   ): Promise<IParsedPokemon | null> => {
-    try {
-      console.log('CHAMOUUUU');
-      
+    try {      
       const res = await this.fetchData(`/${pokemonName.toLowerCase()}`);
       return res;
     } catch (error) {
